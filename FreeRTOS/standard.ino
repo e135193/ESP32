@@ -1,33 +1,34 @@
 
 void setup() {
- 
+  
   Serial.begin(112500);
- 
-  xTaskCreate(taskOne,"TaskOne",10000,NULL,1,NULL); 
-
-  xTaskCreate(taskTwo,"TaskTwo",10000,NULL,1,NULL); 
+  
 }
  
 void loop() {
   
+  taskOne();
+
+  taskTwo();
+
+  while(1);
+  
 }
  
-void taskOne( void * parameter )
+void taskOne( )
 {
     for( int i = 0;i<10;i++ ){
-      Serial.println("Hello from task 1");
-      delay(500);
+        Serial.println("Hello from task 1");
+        delay(500);
     }
     Serial.println("Ending task 1");
-    vTaskDelete( NULL );
 }
  
-void taskTwo( void * parameter)
+void taskTwo( )
 {
     for( int i = 0;i<10;i++ ){
         Serial.println("Hello from task 2");
         delay(1000);
     }
     Serial.println("Ending task 2");
-    vTaskDelete( NULL );
 }
