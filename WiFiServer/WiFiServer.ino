@@ -1,7 +1,7 @@
 #include <WiFi.h>
 
-const char* ssid     = "TP-LINK_DD1956";
-const char* password = "56005073";
+const char* ssid     = "ssid";
+const char* password = "password";
 
 WiFiServer server(80);
 
